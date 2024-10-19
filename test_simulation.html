@@ -1,0 +1,181 @@
+/*O02Z93YYPNOWD2JW*/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;    
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid rgb(247, 249, 250);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        input[type="number"] {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Stock Market Simulator</h1>
+
+    <!-- Stock Table -->
+    <table id="stockTable">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Ticker</th>
+                <th>Current Price (USD)</th>
+                <th>Market Cap (USD)</th>
+                <th>Day's Open</th>
+                <th>Shares Owned</th>
+                <th>Buy Shares</th>
+                <th>Sell Shares</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Pre-filled rows -->
+            <tr>
+                <td>--</td>
+                <td><input type="text" value="CRWD" onchange="getStockData(this.value, this.closest('tr'))"></td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td><span id="shares-CRWD">0</span></td>
+                <td><input type="number" id="buy-CRWD" placeholder="Shares"><button onclick="buyShares('CRWD')">Buy</button></td>
+                <td><input type="number" id="sell-CRWD" placeholder="Shares"><button onclick="sellShares('CRWD')">Sell</button></td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td><input type="text" value="AAPL" onchange="getStockData(this.value, this.closest('tr'))"></td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td><span id="shares-AAPL">0</span></td>
+                <td><input type="number" id="buy-AAPL" placeholder="Shares"><button onclick="buyShares('AAPL')">Buy</button></td>
+                <td><input type="number" id="sell-AAPL" placeholder="Shares"><button onclick="sellShares('AAPL')">Sell</button></td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td><input type="text" value="TSLA" onchange="getStockData(this.value, this.closest('tr'))"></td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td><span id="shares-TSLA">0</span></td>
+                <td><input type="number" id="buy-TSLA" placeholder="Shares"><button onclick="buyShares('TSLA')">Buy</button></td>
+                <td><input type="number" id="sell-TSLA" placeholder="Shares"><button onclick="sellShares('TSLA')">Sell</button></td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td><input type="text" value="GOOG" onchange="getStockData(this.value, this.closest('tr'))"></td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td><span id="shares-GOOG">0</span></td>
+                <td><input type="number" id="buy-GOOG" placeholder="Shares"><button onclick="buyShares('GOOG')">Buy</button></td>
+                <td><input type="number" id="sell-GOOG" placeholder="Shares"><button onclick="sellShares('GOOG')">Sell</button></td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td><input type="text" value="NVDA" onchange="getStockData(this.value, this.closest('tr'))"></td>
+                <td>--</td>
+                <td>--</td>
+                <td>--</td>
+                <td><span id="shares-NVDA">0</span></td>
+                <td><input type="number" id="buy-NVDA" placeholder="Shares"><button onclick="buyShares('NVDA')">Buy</button></td>
+                <td><input type="number" id="sell-NVDA" placeholder="Shares"><button onclick="sellShares('NVDA')">Sell</button></td>
+            </tr>
+            <!-- Additional rows for user input -->
+            ${[...Array(15)].map((_, i) => `
+                <tr>
+                    <td>--</td>
+                    <td><input type="text" onchange="getStockData(this.value, this.closest('tr'))" placeholder="Enter Ticker"></td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td><span id="shares-ticker${i}">0</span></td>
+                    <td><input type="number" id="buy-ticker${i}" placeholder="Shares"><button onclick="buyShares('ticker${i}')">Buy</button></td>
+                    <td><input type="number" id="sell-ticker${i}" placeholder="Shares"><button onclick="sellShares('ticker${i}')">Sell</button></td>
+                </tr>
+            `).join('')}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    let stockData = {};
+
+    // Fetch stock data from API (replace 'YOUR_API_KEY' with actual key)
+    function getStockData(ticker, row) {
+        if (!ticker) return;
+
+        fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=O02Z93YYPNOWD2JW`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.Symbol) {
+                    stockData[ticker] = {
+                        companyName: data.Name,
+                        price: parseFloat(data["05. price"]),
+                        marketCap: data.MarketCapitalization,
+                        open: parseFloat(data["02. open"]),
+                    };
+                    updateStockRow(ticker, row);
+                } else {
+                    alert("Invalid ticker or data not found.");
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching stock data:", error);
+            });
+    }
+
+    // Update the stock row with data
+    function updateStockRow(ticker, row) {
+        const stock = stockData[ticker];
+        row.cells[0].innerText = stock.companyName;
+        row.cells[2].innerText = stock.price;
+        row.cells[3].innerText = formatNumber(stock.marketCap);
+        row.cells[4].innerText = stock.open;
+    }
+
+    // Format large numbers with commas
+    function formatNumber(num) {
+        return num ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "N/A";
+    }
+
+    // Buy shares
+    function buyShares(ticker) {
+        const buyInput = document.getElementById(`buy-${ticker}`).value;
+        const sharesOwned = document.getElementById(`shares-${ticker}`);
+        sharesOwned.innerText = parseInt(sharesOwned.innerText) + parseInt(buyInput);
+    }
+
+    // Sell shares
+    function sellShares(ticker) {
+        const sellInput = document.getElementById(`sell-${ticker}`).value;
+        const sharesOwned = document.getElementById(`shares-${ticker}`);
+        const newShares = parseInt(sharesOwned.innerText) - parseInt(sellInput);
+        sharesOwned.innerText = newShares >= 0 ? newShares : 0;
+    }
+</script>
+
+</body>
+</html>

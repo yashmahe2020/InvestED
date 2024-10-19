@@ -1,0 +1,471 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>InvestED - Quizzes on Money Basics</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>InvestED</strong> by Yash Maheshwari</a>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Quiz - Money Basics</h1>
+									</header>
+
+									<span class="image main"><img src="images/quizzes.png" height="300" width="400" alt="" /></span>
+
+									<p>LET'S PRACTICE WHAT YOU LEARNED!</p>
+
+									<hr class="major" />
+									<div class="box">
+										<p><strong>Question 1:</strong> What is the primary function of money?
+										</br>A) To look pretty in your wallet
+										</br>B) To act as a medium of exchange
+										</br>C) To help with making friends
+										</br>D) To show off wealth
+										</p>
+										
+										<div class="container">
+											<form id="quiz-form">
+											  <div class="row">
+												<div class="col-6 col-12-small">
+												  <ul class="actions stacked">
+													<label>
+													  <li>
+														<button type="button" class="button primary fit" onclick="checkAnswer1('a')">A</button>
+													  </li>
+													</label>
+													<label>
+													  <li>
+														<button type="button" class="button primary fit" onclick="checkAnswer1('b')">B</button>
+													  </li>
+													</label>
+												  </ul>
+												</div>
+												<div class="col-6 col-12-small">
+												  <ul class="actions stacked">
+													<label>
+													  <li>
+														<button type="button" class="button primary fit" onclick="checkAnswer1('c')">C</button>
+													  </li>
+													</label>
+													<label>
+													  <li>
+														<button type="button" class="button primary fit" onclick="checkAnswer1('d')">D</button>
+													  </li>
+													</label>
+												  </ul>
+												</div>
+											  </div>
+											</form>
+											<div class="result" id="result1"></div>
+										  </div>
+										</div>
+										  <hr />
+										  
+										  <script>
+											function checkAnswer1(selectedAnswer1) {
+											  // Get the result element to display feedback
+											  const resultElement = document.getElementById("result1");
+										  
+											  // Check if the selected answer is correct
+											  if (selectedAnswer1 === "b") {
+												resultElement.innerHTML = "Correct! Money allows us to exchange goods and services efficiently. Instead of bartering, we use money to buy things we need or want.";
+												resultElement.classList.add("correct");
+												resultElement.classList.remove("incorrect");
+											  } else {
+												resultElement.innerHTML = "Incorrect. The correct answer is B. Money allows us to exchange goods and services efficiently. Instead of bartering, we use money to buy things we need or want.";
+												resultElement.classList.add("incorrect");
+												resultElement.classList.remove("correct");
+											  }
+											}
+										  </script>
+
+
+<div class="box">
+<p><strong>Question 2:</strong> What is a budget?
+</br>A) A tool to track how much money you borrow
+</br>B) A tool to see how rich you are
+</br>C) A plan for saving and spending money
+</br>D) A way to spend as much money as possible
+</p>
+
+<div class="container">
+	<form id="quiz-form">
+	  <div class="row">
+		<div class="col-6 col-12-small">
+		  <ul class="actions stacked">
+			<label>
+			  <li>
+				<button type="button" class="button primary fit" onclick="checkAnswer2('a')">A</button>
+			  </li>
+			</label>
+			<label>
+			  <li>
+				<button type="button" class="button primary fit" onclick="checkAnswer2('b')">B</button>
+			  </li>
+			</label>
+		  </ul>
+		</div>
+		<div class="col-6 col-12-small">
+		  <ul class="actions stacked">
+			<label>
+			  <li>
+				<button type="button" class="button primary fit" onclick="checkAnswer2('c')">C</button>
+			  </li>
+			</label>
+			<label>
+			  <li>
+				<button type="button" class="button primary fit" onclick="checkAnswer2('d')">D</button>
+			  </li>
+			</label>
+		  </ul>
+		</div>
+	  </div>
+	</form>
+	<div class="result" id="result2"></div>
+  </div>
+</div>
+  <hr />
+  
+  <script>
+	function checkAnswer2(selectedAnswer2) {
+	  // Get the result element to display feedback
+	  const resultElement = document.getElementById("result2");
+  
+	  // Check if the selected answer is correct
+	  if (selectedAnswer2 === "c") {
+		resultElement.innerHTML = "Correct! A budget helps you track your income and expenses so you can plan how much to save and how much to spend, ensuring you manage your money wisely.";
+		resultElement.classList.add("correct");
+		resultElement.classList.remove("incorrect");
+	  } else {
+		resultElement.innerHTML = "Incorrect. The correct answer is C. A budget helps you track your income and expenses so you can plan how much to save and how much to spend, ensuring you manage your money wisely.";
+		resultElement.classList.add("incorrect");
+		resultElement.classList.remove("correct");
+	  }
+	}
+  </script>
+
+<div class="box">
+<p><strong>Question 3:</strong> Why is saving money important?"?
+</br>A) So you can spend it all on one thing later
+</br>B) To have money for emergencies or future needs
+</br>C) So you can stop working forever
+</br>D) So you can show others how much you have
+</p>
+
+<div class="container">
+	<form id="quiz-form">
+	  <div class="row">
+		<div class="col-6 col-12-small">
+		  <ul class="actions stacked">
+			<label>
+			  <li>
+				<button type="button" class="button primary fit" onclick="checkAnswer3('a')">A</button>
+			  </li>
+			</label>
+			<label>
+			  <li>
+				<button type="button" class="button primary fit" onclick="checkAnswer3('b')">B</button>
+			  </li>
+			</label>
+		  </ul>
+		</div>
+		<div class="col-6 col-12-small">
+		  <ul class="actions stacked">
+			<label>
+			  <li>
+				<button type="button" class="button primary fit" onclick="checkAnswer3('c')">C</button>
+			  </li>
+			</label>
+			<label>
+			  <li>
+				<button type="button" class="button primary fit" onclick="checkAnswer3('d')">D</button>
+			  </li>
+			</label>
+		  </ul>
+		</div>
+	  </div>
+	</form>
+	<div class="result" id="result3"></div>
+  </div>
+</div>
+  <hr />
+  
+  <script>
+	function checkAnswer3(selectedAnswer3) {
+	  // Get the result element to display feedback
+	  const resultElement = document.getElementById("result3");
+  
+	  // Check if the selected answer is correct
+	  if (selectedAnswer3 === "b") {
+		resultElement.innerHTML = "Correct! Savings are important because they prepare you for unexpected costs, emergencies, or future goals like buying a car, going to college, or retirement.";
+		resultElement.classList.add("correct");
+		resultElement.classList.remove("incorrect");
+	  } else {
+		resultElement.innerHTML = "Incorrect. The correct answer is B. Savings are important because they prepare you for unexpected costs, emergencies, or future goals like buying a car, going to college, or retirement.";
+		resultElement.classList.add("incorrect");
+		resultElement.classList.remove("correct");
+	  }
+	}
+  </script>
+									
+									<div class="box">
+									<p><strong>Question 4:</strong> What is interest in terms of money?
+									</br>A) The fee you pay for borrowing money
+									</br>B) The amount of money you earn from a summer job
+									</br>C) The amount of cash you have in your wallet
+									</br>D) A type of coupon you get for free
+									</p>
+									
+									<div class="container">
+										<form id="quiz-form">
+										  <div class="row">
+											<div class="col-6 col-12-small">
+											  <ul class="actions stacked">
+												<label>
+												  <li>
+													<button type="button" class="button primary fit" onclick="checkAnswer4('a')">A</button>
+												  </li>
+												</label>
+												<label>
+												  <li>
+													<button type="button" class="button primary fit" onclick="checkAnswer4('b')">B</button>
+												  </li>
+												</label>
+											  </ul>
+											</div>
+											<div class="col-6 col-12-small">
+											  <ul class="actions stacked">
+												<label>
+												  <li>
+													<button type="button" class="button primary fit" onclick="checkAnswer4('c')">C</button>
+												  </li>
+												</label>
+												<label>
+												  <li>
+													<button type="button" class="button primary fit" onclick="checkAnswer4('d')">D</button>
+												  </li>
+												</label>
+											  </ul>
+											</div>
+										  </div>
+										</form>
+										<div class="result" id="result4"></div>
+									  </div>
+									</div>
+									  <hr />
+									  
+									  <script>
+										function checkAnswer4(selectedAnswer4) {
+										  // Get the result element to display feedback
+										  const resultElement = document.getElementById("result4");
+									  
+										  // Check if the selected answer is correct
+										  if (selectedAnswer4 === "a") {
+											resultElement.innerHTML = "Correct! Interest is the cost of borrowing money. When you borrow from a bank or use a credit card, you are charged interest until the debt is repaid.";
+											resultElement.classList.add("correct");
+											resultElement.classList.remove("incorrect");
+										  } else {
+											resultElement.innerHTML = "Incorrect. The correct answer is A. Interest is the cost of borrowing money. When you borrow from a bank or use a credit card, you are charged interest until the debt is repaid.";
+											resultElement.classList.add("incorrect");
+											resultElement.classList.remove("correct");
+										  }
+										}
+									  </script>
+									  
+									  <div class="box">
+										<p><strong>Question 5:</strong> What does “living within your means” mean?
+										</br>A) Spending more money than you earn
+										</br>B) Spending exactly the amount of money you have
+										</br>C) Earning more than you spend
+										</br>D) Only buying things you like
+										</p>
+										
+										<div class="container">
+											<form id="quiz-form">
+											  <div class="row">
+												<div class="col-6 col-12-small">
+												  <ul class="actions stacked">
+													<label>
+													  <li>
+														<button type="button" class="button primary fit" onclick="checkAnswer5('a')">A</button>
+													  </li>
+													</label>
+													<label>
+													  <li>
+														<button type="button" class="button primary fit" onclick="checkAnswer5('b')">B</button>
+													  </li>
+													</label>
+												  </ul>
+												</div>
+												<div class="col-6 col-12-small">
+												  <ul class="actions stacked">
+													<label>
+													  <li>
+														<button type="button" class="button primary fit" onclick="checkAnswer5('c')">C</button>
+													  </li>
+													</label>
+													<label>
+													  <li>
+														<button type="button" class="button primary fit" onclick="checkAnswer5('d')">D</button>
+													  </li>
+													</label>
+												  </ul>
+												</div>
+											  </div>
+											</form>
+											<div class="result" id="result5"></div>
+										  </div>
+										</div>
+										  <hr />
+										  
+										  <script>
+											function checkAnswer5(selectedAnswer5) {
+											  // Get the result element to display feedback
+											  const resultElement = document.getElementById("result5");
+										  
+											  // Check if the selected answer is correct
+											  if (selectedAnswer5 === "c") {
+												resultElement.innerHTML = "Correct! Living within your means means ensuring that your income is more than your expenses, allowing you to avoid debt and save money for the future.";
+												resultElement.classList.add("correct");
+												resultElement.classList.remove("incorrect");
+											  } else {
+												resultElement.innerHTML = "Incorrect. The correct answer is C. Living within your means means ensuring that your income is more than your expenses, allowing you to avoid debt and save money for the future.";
+												resultElement.classList.add("incorrect");
+												resultElement.classList.remove("correct");
+											  }
+											}
+										  
+                                          
+                                          </script> 	
+								
+											
+                                            
+                                           
+                                    <class="actions">
+                                        <a href="quiz.html" class="button default">Go Back!</a>
+                                      
+								  
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+                <div id="sidebar">
+                    <div class="inner">
+
+                        <!-- Search -->
+                            <section id="search" class="alt">
+                                <form method="post" action="#">
+                                    <input type="text" name="query" id="query" placeholder="Search" />
+                                </form>
+                            </section>
+
+                        <!-- Menu -->
+                            <nav id="menu">
+                                <header class="major">
+                                    <h2>Menu</h2>
+                                </header>
+                                <ul>
+                                    <li><a href="index.html">Homepage</a></li>
+                                    <li>
+                                        <span class="opener">Lessons</span>
+                                        <ul>
+                                            <li><a href="lesson.html">Lessons</a></li>
+                                            <li><a href="lesson_finance.html">Money Basics</a></li>
+                                            <li><a href="lesson_budget.html">Budgeting</a></li>
+                                            <li><a href="lesson_skill.html">Develop Skills</a></li>
+                                            <li><a href="lesson_passive.html">Passive Income</a></li>
+                                            <li><a href="lesson_spending.html">Spending on Needs vs Wants</a></li>
+                                            <li><a href="lesson_invest.html">Investing</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="opener">Quizzes</span>
+                                        <ul>
+                                            <li><a href="quiz.html">Quizzes</a></li>
+                                            <li><a href="quizbasic.html">Money Basics Quiz</a></li>
+                                            <li><a href="quizbudget.html">Budgeting Quiz</a></li>
+                                            <li><a href="quizskill.html">Developing Skills Quiz</a></li>
+                                            <li><a href="quizpassive.html">Passive Income Quiz</a></li>
+                                            <li><a href="quizspend.html">Spending Quiz</a></li>
+                                            <li><a href="quizinvest.html">Investing Quiz</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="casestudy.html">Case Studies</a></li>
+                                    <li><a href="mock.html">Mock Investments</a></li>
+                                    <li><a href="simulation.html">Simulations</a></li>
+                                    <li><a href="chatbot.html">Your Personal Assistant</a></li>
+                                </ul>
+                            </nav>
+
+                        <!-- Section -->
+                            <section>
+                                <header class="major">
+                                    <h2>AI Chatbot</h2>
+                                </header>
+                                <div class="mini-posts">
+                                    <article>
+                                        <a href="chatbot.html" class="image"><img src="images/robot.png" alt="" /></a>
+                                        <p>Hi, I am Yoshi, your personal finance assistant! I am here to help you navigate the world of money. Whatever financial advice you need, I got you covered with simple, easy-to-understand guidance.</p>
+                                    </article>
+                            </section>
+
+                        <!-- Section -->
+                            <section>
+                                <header class="major">
+                                    <h2>Get in touch</h2>
+                                </header>
+                                <p>If you would like private lessons or want to bring financial literacy to your students in a school, a group of friends or after school program, please feel free to contact us and we will be happy to customize our curriculum to support you. </p>
+                                <ul class="contact">
+                                    <li class="icon solid fa-envelope"><a href="#">YashMahe2018@gmail.com</a></li>
+                                    <li class="icon solid fa-home">Portland Avenue<br />
+                                    Los Altos, CA 94024</li>
+                                </ul>
+                            </section>
+
+                        <!-- Footer -->
+                            <footer id="footer">
+                                <p class="copyright">&copy; InvestED. All rights reserved. </p>
+                            </footer>
+
+                    </div>
+                </div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
