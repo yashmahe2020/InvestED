@@ -2,9 +2,6 @@ const chatbox = document.getElementById('chatbox');
 const userInput = document.getElementById('userInput');
 const sendButton = document.getElementById('sendButton');
 
-// Replace with your actual API key
-const API_KEY = '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';
-
 sendButton.onclick = async () => {
     const a = "Always end your response with a question to continue the conversation but do not ask the similar question in the same chat rather ask different types of relevant questions creatively.";
     
@@ -23,36 +20,31 @@ sendButton.onclick = async () => {
         "- If someone asks abotu stock investments, guide them subtly to consider ETFs or mutual funds; and they can start by simulations and invest virtual money before real investing.\n" +
         "- Where appropriate, advise teenagers to involve a parent or guardian when making significant financial decisions.\n" ;
     const c = "Always suggest some ways to solve the challenge or question asked. Give answers that are simple to understand, actionable, use financial literacy concepts and human-like in its responses.";
-    const d = "Sumnmarize your response in no more than 10 sentences. Always try to give bullet point answers whenever possible, in a listed number format.";
+    const d = "Summarize your response in no more than 10 sentences. Always try to give bullet point answers whenever possible, in a listed number format. Next I will give you the input: ";
     const userMessage = userInput.value;
-    const message = a + b + c + d + userMessage;
+    const finalMessage = a + b + c + d + userMessage;
 
     if (userMessage.trim() === '') return;
 
-    // Display user message (without variable 'a,b,c')
     chatbox.innerHTML += `<div class="message user-message"><b>User:</b> ${userMessage}</div>`;
     userInput.value = '';
-    chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
+    chatbox.scrollTop = chatbox.scrollHeight;
 
     try {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        const response = await fetch('/api/chat', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${API_KEY}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                model: "gpt-3.5-turbo",
-                messages: [{ role: 'user', content: message }]
-            })
+            body: JSON.stringify({ message: finalMessage })
         });
 
         const data = await response.json();
-        const botMessage = data.choices[0].message.content;
+        const botMessage = data.botMessage;
 
         // Display bot response
         chatbox.innerHTML += `<div class="message bot-message"><b>Bot:</b> ${botMessage} </div>`;
-        chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
+        chatbox.scrollTop = chatbox.scrollHeight;
     } catch (error) {
         chatbox.innerHTML += `<div class="message bot-message">Bot: Sorry, something went wrong.</div>`;
     }
